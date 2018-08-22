@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SVProgressHUD
 class HomeVC: UIViewController {
     
     let cellIdentifier = "MainViewTableViewCell"
@@ -34,7 +35,7 @@ class HomeVC: UIViewController {
     }
     func getData(){
         
-    //    SVProgressHUD.show(withStatus: "wait")
+       SVProgressHUD.show(withStatus: "wait")
         
 
         Alamofire.request(Constants.URLConstants.BaseURL, method: .get)
@@ -57,12 +58,12 @@ class HomeVC: UIViewController {
                 
                 
                 
-                
+                SVProgressHUD.dismiss()
                 
                 
         }
         
-        
+    
         
     }
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SVProgressHUD
 class RepoDetailsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
@@ -33,7 +34,7 @@ let cellIdentifier = "RepoDetailsTableViewCell"
     
     func getData(){
         
-        //    SVProgressHUD.show(withStatus: "wait")
+         SVProgressHUD.show(withStatus: "wait")
         
         
         Alamofire.request(RepoDetailsVC.Url, method: .get)
@@ -46,6 +47,7 @@ let cellIdentifier = "RepoDetailsTableViewCell"
                 if let Data = response.result.value {
                     print(Data)
                     self.DataResponse = Data
+                  
                     self.tableView.reloadData()
                     
                 }
@@ -56,7 +58,7 @@ let cellIdentifier = "RepoDetailsTableViewCell"
                 
                 
                 
-                
+             SVProgressHUD.dismiss()
                 
                 
         }

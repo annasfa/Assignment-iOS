@@ -45,11 +45,13 @@ class LoginVC: BaseViewController {
     
     
     @objc func ButtonLoginPressed(){
-
+SVProgressHUD.show()
         
         if self.UserNameTxtField.text == "" || self.PasswordTxtField.text == "" {
             
             //Alert to tell the user that there was an error because they didn't fill anything in the textfields because they didn't fill anything in
+            
+            SVProgressHUD.dismiss()
             
             let alertController = UIAlertController(title: "Error", message: "Please enter an email and password.", preferredStyle: .alert)
             
@@ -60,10 +62,11 @@ class LoginVC: BaseViewController {
             
         } else {
             
+            
             Auth.auth().signIn(withEmail: self.UserNameTxtField.text!, password: self.PasswordTxtField.text!) { (user, error) in
                 
                 if error == nil {
-                    
+                       SVProgressHUD.dismiss()
                     //Print into the console if successfully logged in
                     print("You have successfully logged in")
                     
@@ -73,7 +76,7 @@ class LoginVC: BaseViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                     
                 } else {
-                    
+                       SVProgressHUD.dismiss()
                     //Tells the user that there is an error and then gets firebase to tell them the error
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     
