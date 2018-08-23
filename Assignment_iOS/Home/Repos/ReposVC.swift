@@ -1,45 +1,48 @@
 //
-//  HomeVC.swift
+//  ReposVC.swift
 //  Assignment_iOS
 //
-//  Created by AnnAsFA on 8/20/18.
+//  Created by AnnAsFA on 8/23/18.
 //  Copyright © 2018 Assignment‏. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 import SVProgressHUD
-class HomeVC: UIViewController {
+class ReposVC: UIViewController {
+
     
-    let cellIdentifier = "MainViewTableViewCell"
-      var DataResponse = [GithubModel]()
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    static var Url = ""
+      var DataResponse = [UsersModelDetail]()
+    let cellIdentifier = "ReposTableViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  
-        //setup()
-        getData()
-      
+getData()
         // Do any additional setup after loading the view.
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-          setup()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+        setup()
+    }
+    
+    
     func getData(){
         
-       SVProgressHUD.show(withStatus: "wait")
+        SVProgressHUD.show(withStatus: "wait")
         
-
-        Alamofire.request(Constants.URLConstants.BaseURL, method: .get)
-            .responseGithubModel { response in
+        
+        Alamofire.request(ReposVC.Url, method: .get)
+            .responseUsersModelDetails { response in
                 
                 print(response.request as Any)  // original URL request
                 print(response.response as Any) // URL response
@@ -47,7 +50,8 @@ class HomeVC: UIViewController {
                 //let responce = response.result.value as! [String:AnyObject]
                 if let Data = response.result.value {
                     print(Data)
-                    self.DataResponse = [Data]
+                    self.DataResponse = Data
+                    
                     self.tableView.reloadData()
                     
                 }
@@ -63,22 +67,19 @@ class HomeVC: UIViewController {
                 
         }
         
+        
+        
+    }
     
-        
-    }
-
     func setup(){
-          self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
         
-        let CellNib = UINib(nibName: cellIdentifier, bundle:nil)
-        
-        self.tableView.register(CellNib, forCellReuseIdentifier: cellIdentifier)
         
     }
+
+
 }
-
-
-extension HomeVC: UITableViewDelegate,UITableViewDataSource{
+extension ReposVC : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DataResponse.count
@@ -86,7 +87,7 @@ extension HomeVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-          let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! MainViewTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! ReposTableViewCell
         
         cell.setData(object: DataResponse[indexPath.row])
         
@@ -95,14 +96,20 @@ extension HomeVC: UITableViewDelegate,UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         let obj = DataResponse[indexPath.row]
         
-        
-        let obj = DataResponse[indexPath.row]
-        ReposVC.Url = obj.reposURL!
-        let vc = self.storyboard!.instantiateViewController(withIdentifier: "ReposVC") as! ReposVC
+        RepoDetailsVC.DataResponse =  [obj]
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "RepoDetailsVC") as! RepoDetailsVC
         
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension 
+    }
+    
+    
+    
+    
 }
+

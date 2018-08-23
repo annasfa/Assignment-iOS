@@ -17,11 +17,11 @@ class RepoDetailsVC: UIViewController {
     
 let cellIdentifier = "RepoDetailsTableViewCell"
     
-  var DataResponse = [UsersModelDetail]()
+ static var DataResponse = [UsersModelDetail]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-         getData()
+       //  getData()
         
         // Do any additional setup after loading the view.
     }
@@ -32,40 +32,40 @@ let cellIdentifier = "RepoDetailsTableViewCell"
     }
     
     
-    func getData(){
-        
-         SVProgressHUD.show(withStatus: "wait")
-        
-        
-        Alamofire.request(RepoDetailsVC.Url, method: .get)
-            .responseUsersModelDetails { response in
-                
-                print(response.request as Any)  // original URL request
-                print(response.response as Any) // URL response
-                print(response.result.value as Any)
-                //let responce = response.result.value as! [String:AnyObject]
-                if let Data = response.result.value {
-                    print(Data)
-                    self.DataResponse = Data
-                  
-                    self.tableView.reloadData()
-                    
-                }
-                // print(responce)
-                
-                
-                
-                
-                
-                
-             SVProgressHUD.dismiss()
-                
-                
-        }
-        
-        
-        
-    }
+//    func getData(){
+//
+//         SVProgressHUD.show(withStatus: "wait")
+//
+//
+//        Alamofire.request(RepoDetailsVC.Url, method: .get)
+//            .responseUsersModelDetails { response in
+//
+//                print(response.request as Any)  // original URL request
+//                print(response.response as Any) // URL response
+//                print(response.result.value as Any)
+//                //let responce = response.result.value as! [String:AnyObject]
+//                if let Data = response.result.value {
+//                    print(Data)
+//                    self.DataResponse = Data
+//
+//                    self.tableView.reloadData()
+//
+//                }
+//                // print(responce)
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//        }
+//
+//          SVProgressHUD.dismiss()
+//
+//    }
     
     func setup(){
         self.navigationController?.isNavigationBarHidden = false
@@ -95,14 +95,14 @@ let cellIdentifier = "RepoDetailsTableViewCell"
 extension RepoDetailsVC : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataResponse.count
+        return RepoDetailsVC.DataResponse.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! RepoDetailsTableViewCell
         
-    cell.setData(object: DataResponse[indexPath.row])
+    cell.setData(object: RepoDetailsVC.DataResponse[indexPath.row])
         
         return cell
     }

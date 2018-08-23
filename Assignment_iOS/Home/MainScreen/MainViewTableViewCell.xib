@@ -13,15 +13,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MainViewTableViewCell" rowHeight="107" id="KGk-i7-Jjw" customClass="MainViewTableViewCell" customModule="Assignment_iOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="107"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MainViewTableViewCell" rowHeight="145" id="KGk-i7-Jjw" customClass="MainViewTableViewCell" customModule="Assignment_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="106.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="144.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gzp-ag-HoY">
-                        <rect key="frame" x="9" y="5" width="358" height="82"/>
+                        <rect key="frame" x="9" y="11" width="358" height="123"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="night-stars-wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="Y5I-7i-bjR">
@@ -33,13 +33,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdc-Sp-T3u">
-                        <rect key="frame" x="97" y="5" width="262" height="35"/>
+                        <rect key="frame" x="97" y="11" width="262" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="public_repos : 99999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjM-bi-LOD">
-                        <rect key="frame" x="97" y="66" width="270" height="21"/>
+                        <rect key="frame" x="97" y="61" width="270" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="270" id="cg8-S7-tQB"/>
                             <constraint firstAttribute="height" constant="21" id="dGt-5r-yAd"/>
@@ -48,20 +48,33 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List of repositories -&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMg-AG-iZV">
+                        <rect key="frame" x="97" y="104" width="270" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="BWH-UC-j2N"/>
+                            <constraint firstAttribute="width" constant="270" id="Sgb-od-Agz"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="Gzp-ag-HoY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-6" id="AYT-Wi-8mn"/>
+                    <constraint firstItem="Gzp-ag-HoY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="AYT-Wi-8mn"/>
                     <constraint firstItem="Gzp-ag-HoY" firstAttribute="top" secondItem="Xdc-Sp-T3u" secondAttribute="top" id="BXy-s5-kpQ"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Gzp-ag-HoY" secondAttribute="bottom" constant="9" id="E6L-Di-YnT"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Gzp-ag-HoY" secondAttribute="bottom" id="E6L-Di-YnT"/>
                     <constraint firstItem="Gzp-ag-HoY" firstAttribute="trailing" secondItem="KjM-bi-LOD" secondAttribute="trailing" id="F9V-pF-vwP"/>
-                    <constraint firstItem="Gzp-ag-HoY" firstAttribute="bottom" secondItem="KjM-bi-LOD" secondAttribute="bottom" id="KQo-CF-u18"/>
+                    <constraint firstItem="Gzp-ag-HoY" firstAttribute="bottom" secondItem="KjM-bi-LOD" secondAttribute="bottom" constant="52" id="KQo-CF-u18"/>
                     <constraint firstItem="Xdc-Sp-T3u" firstAttribute="leading" secondItem="Y5I-7i-bjR" secondAttribute="trailing" constant="16" id="LIu-E9-hgs"/>
                     <constraint firstItem="Y5I-7i-bjR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="NAk-E7-AE8"/>
                     <constraint firstItem="Xdc-Sp-T3u" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="NGi-Hp-58X"/>
+                    <constraint firstItem="KjM-bi-LOD" firstAttribute="trailing" secondItem="ZMg-AG-iZV" secondAttribute="trailing" id="Nmo-ms-i3n"/>
                     <constraint firstItem="Y5I-7i-bjR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="SoP-sa-POC"/>
-                    <constraint firstItem="Gzp-ag-HoY" firstAttribute="centerY" secondItem="Y5I-7i-bjR" secondAttribute="centerY" id="T1l-VW-E45"/>
+                    <constraint firstItem="Gzp-ag-HoY" firstAttribute="centerY" secondItem="Y5I-7i-bjR" secondAttribute="centerY" constant="26" id="T1l-VW-E45"/>
+                    <constraint firstItem="ZMg-AG-iZV" firstAttribute="top" secondItem="KjM-bi-LOD" secondAttribute="bottom" constant="22" id="WXx-Xa-CFf"/>
                     <constraint firstItem="Gzp-ag-HoY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-7" id="f8r-Xq-1Ma"/>
+                    <constraint firstItem="Gzp-ag-HoY" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="gl6-2s-Kgk"/>
                     <constraint firstItem="Gzp-ag-HoY" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="gwg-aW-eeO"/>
                     <constraint firstItem="KjM-bi-LOD" firstAttribute="top" secondItem="Xdc-Sp-T3u" secondAttribute="bottom" constant="26" id="sRX-cl-dV4"/>
                 </constraints>
@@ -74,7 +87,7 @@
                 <outlet property="name" destination="Xdc-Sp-T3u" id="Js9-rU-f2B"/>
                 <outlet property="public_repos_Number" destination="KjM-bi-LOD" id="GjU-vO-Bpb"/>
             </connections>
-            <point key="canvasLocation" x="46.5" y="90.5"/>
+            <point key="canvasLocation" x="46.5" y="109.5"/>
         </tableViewCell>
     </objects>
     <resources>
